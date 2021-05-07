@@ -90,7 +90,7 @@ const app = new Vue({
     
   },
 
-  // Nella funzione removeToDo devo inserire l'index perchè ho bisogno di andare ad eliminare con lo splice l'indice
+
   methods:{
 
     

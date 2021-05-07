@@ -110,7 +110,7 @@ i{
   margin-left: 10px;
 }
 
-.info-notifications .received{
+.info-notifications .new-not{
   font-size: 12px;
   margin-bottom: 3px;
 }
@@ -152,8 +152,7 @@ i{
   width: 95%;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.041);
-  height: calc(100% - 195px);
-  min-height: 100px;
+  height: calc(100% - 190px);
   overflow: auto;
 }
 
@@ -194,11 +193,6 @@ i{
   border-radius: 50%;
   vertical-align: middle;
 }
-
-
-
-
-
 
 
 
@@ -283,37 +277,42 @@ i{
   border-right: 10px solid white;
 }
 
-div.message{
-  font-size: 13px;
-  width: calc(95%/ 2);
-  float: left;
-  height: 50px;
+.msg-container{
+  display: flex;
+  width: 100%;
+}
+
+.msg-container-right{
+  flex-direction: row-reverse;
+}
+
+.msg{
+  display: flex;
+  align-items: center;
   position: relative;
-  border-radius: 5px;
-  padding: 15px;
-  cursor: pointer;
+  width: 45%;
+  padding: 20px 5px;
+  border-radius: 10px;
 }
 
-div.received{
-  margin-right: 5%;
-  margin-bottom: 5%;
-  background-color: rgb(242, 255, 242);
+.msg-container .sent{
+  background-color: rgb(167, 255, 167);
 }
 
-div.sent{
-  background-color: rgba(162, 255, 162, 0.822);
+.msg-container .received{
+  background-color: white;
 }
 
 
-div.message span{
+div.sent span, div.received span{
   font-size: 9px;
   color: gray;
   position: absolute;
-  right: 1px;
+  right: 5px;
   bottom: 2px;
 }
 
-div.message i{
+div.msg i{
   display: none;
   position: absolute; 
   right: 10px;
@@ -322,7 +321,7 @@ div.message i{
   
 }
 
-div.message:hover i{
+div.msg:hover i{
   display:inline;
 }
 
