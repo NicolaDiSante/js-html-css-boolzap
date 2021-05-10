@@ -23,8 +23,8 @@
         <header>
 
           <div class="left-header-left">
-            <img src="img/avatar_1.jpg" alt="">
-            <span class="user-name">Nome Utente</span>
+            <img :src=" 'img/avatar' + user.avatar + '.jpg' " :alt="user.name">
+            <span class="user-name">{{user.name}}</span>
           </div>
           <div class="left-header-right">
             <i class="fas fa-circle-notch"></i>
@@ -109,7 +109,7 @@
           </div>
           <div class="msg-container">
             <div class="msg received">
-              <p>lorem10000</p>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint nostrum a quam officia quasi, ad suscipit,.</p>
               <span>959685968595</span>
               <i class="fas fa-chevron-down"></i>
             </div>

@@ -25,7 +25,7 @@ i{
 
 .container{
   width: 85%;
-  min-width: 700px;
+  min-width: 500px;
   height: 95%;
   margin: auto;
 }
@@ -81,7 +81,7 @@ i{
   color: rgba(46, 31, 31, 0.678);
 }
 
-/* LEFT NOTIFICATIONS / CHAT LIST */
+/* LEFT NOTIFICATIONS */
 
 .container .left .notifications{
   height: 70px;
@@ -126,7 +126,7 @@ i{
   color: black;
 }
 
-
+/* CHAT LIST */
 
 .container .left div.left-chat-bar{
   margin: 10px 5px;
@@ -149,11 +149,11 @@ i{
 }
 
 .container .left div.left-chat-list{
-  width: 95%;
+  width: 100%;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.041);
   height: calc(100% - 190px);
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 .container .left div.left-chat-list ul{
@@ -193,10 +193,6 @@ i{
   border-radius: 50%;
   vertical-align: middle;
 }
-
-
-
-
 
 /* END LEFT CONTAINER */
 
@@ -273,8 +269,9 @@ i{
 .container .right section{
   height: calc(100% - 140px);
   padding: 40px 40px;
-  overflow: auto;
-  border-right: 10px solid white;
+  overflow-y: scroll;
+  list-style: none;
+
 }
 
 .msg-container{
@@ -291,7 +288,8 @@ i{
   align-items: center;
   position: relative;
   width: 45%;
-  padding: 20px 5px;
+  padding: 15px 25px 20px 10px;
+
   border-radius: 10px;
 }
 
