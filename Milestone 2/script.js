@@ -8,7 +8,7 @@ const app = new Vue({
       avatar: '_io'
     },
 
-    counterText: 0,
+    activeIndex: 0,
 
     contacts: [
       {
@@ -102,4 +102,5 @@ const app = new Vue({
  
  
 })
+
 

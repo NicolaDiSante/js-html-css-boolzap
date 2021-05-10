@@ -100,30 +100,28 @@
 
         <section>
 
-          <div class="msg-container msg-container-right">
-
-            <div class="msg sent">
-
-                <p v-if="contacts[0].messages[0].status === 'sent'"> {{ contacts[0].messages[0].text }} </p>               
-                <span></span>
-                <i class="fas fa-chevron-down"></i>
-
-            </div>
+        <div  
+        v-for="(message, index) in contacts[activeIndex].messages" class="msg-container msg-container-right"
+        v-if="message.status === 'sent' "
+        >
+          <div class="msg sent">
+            
+            <p> {{message.text}} </p>               
+            <span></span>
+            <i class="fas fa-chevron-down"></i>
             
           </div>
+        </div>
 
-          
-
-          <div class="msg-container">
-
-            <div v-if="contacts[0].messages[2].status === 'received'" class="msg received">
-
-              <p> {{ contacts[0].messages[2].text }}  </p>
+          <div
+           v-for="(message, index) in contacts[activeIndex].messages"
+           class="msg-container"
+           v-if="message.status !== 'sent' ">
+            <div class="msg received">
+              <p>  {{message.text}}  </p>
               <span></span>
               <i class="fas fa-chevron-down"></i>
-
             </div>
-
           </div>
 
         </section>
