@@ -56,8 +56,7 @@
               v-for="(contact, index) in contacts"
               @click="activeIndex = index"
               :class="activeIndex === index ? 'active' : null"
-              v-if="contact.visible"
-              v-if="contact.name.includes(ricerca)"
+              v-if="contact.visible && contact.name.includes(ricerca)"       
             >
             <img :src=" 'img/avatar' + contact.avatar + '.jpg'  " alt="">
             {{contact.name}}

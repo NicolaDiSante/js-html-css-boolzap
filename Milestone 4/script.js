@@ -9,6 +9,7 @@ const app = new Vue({
     },
 
     activeIndex: 0,
+    ricerca: "",
     
 
     contacts: [
@@ -118,6 +119,7 @@ const app = new Vue({
    }, 1000);
 
    this.msgSent = "";
+
     
   },
 
