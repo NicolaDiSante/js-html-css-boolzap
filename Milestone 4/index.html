@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Boolzap</title>
+</head>
+<body>
+  
+
+
+  
+    <div id="app" class="container">
+
+      <aside class="left">
+
+        <header>
+
+          <div class="left-header-left">
+            <img :src=" 'img/avatar' + user.avatar + '.jpg' " :alt="user.name">
+            <span class="user-name">{{user.name}}</span>
+          </div>
+          <div class="left-header-right">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+          
+
+        </header>
+
+        <div class="notifications">
+          <i class="fas fa-bell-slash"></i>
+          <div class="info-notifications">
+            <span class="new-not">Ricevi Notifiche di nuovi messaggi</span>
+            <span class="underline">Attiva notifiche desktop</span>
+          </div>
+        </div>
+
+        <div class="left-chat-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" v-model="ricerca" class="new-chat" placeholder="Cerca o inizia una nuova chat">
+
+          
+        </div>
+
+        <div class="left-chat-list">
+          <ul>
+            <li
+              v-for="(contact, index) in contacts"
+              @click="activeIndex = index"
+              :class="activeIndex === index ? 'active' : null"
+              v-if="contact.visible"
+              v-if="contact.name.includes(ricerca)"
+            >
+            <img :src=" 'img/avatar' + contact.avatar + '.jpg'  " alt="">
+            {{contact.name}}
+            </li>
+            <!-- <li class="images">
+              
+              <span>Michele</span>
+            </li>
+            <li class="images">
+              <img src="img/avatar_3.jpg" alt="">
+              <span>Michele</span>
+            </li>
+            <li class="images">
+              <img src="img/avatar_3.jpg" alt="">
+              <span>Michele</span>
+            </li>
+            <li class="images">
+              <img src="img/avatar_3.jpg" alt="">
+              <span>Michele</span>
+            </li> -->
+          </ul>
+        </div>
+
+        
+
+      </aside>
+
+      <section class="right">
+
+        <header>
+          <div class="right-header-left">
+            <img :src=" `img/avatar${contacts[activeIndex].avatar}.jpg` " alt="">
+            <div class="info">
+              <span> {{ contacts[activeIndex].name }} </span>
+              <span class="access">Ultimo accesso oggi alle</span>
+            </div>
+          </div>
+          <div class="right-header-right">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-map-pin"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </header>
+
+        <section>
+
+        <div  
+        v-for="(message, index) in contacts[activeIndex].messages" class="msg-container"
+        :class="message.status === 'received' ? 'left-left' : null"
+        >
+          <div class="msg" :class="message.status">
+            
+            <p> {{message.text}} </p>               
+            <span> {{message.date}} </span>
+            <i class="fas fa-chevron-down"></i>
+            
+          </div>
+        </div>
+
+
+        </section>
+
+        <footer>
+          <i class="far fa-smile"></i>
+          <input 
+            type="text" 
+            placeholder="Scrivi un messaggio"
+            v-model="msgSent"
+            @keyup.enter="addMsg"
+            >
+          <i class="fas fa-microphone"></i>
+        </footer>
+
+      </section>
+
+    </div>
+     
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
