@@ -117,6 +117,8 @@ const app = new Vue({
       })
    }, 1000);
 
+   this.msgSent = "";
+
 
     
     
