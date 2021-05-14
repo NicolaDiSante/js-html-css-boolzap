@@ -97,7 +97,9 @@ const app = new Vue({
         ],
       },
     ],
-    msgSent: ""
+    msgSent: "",
+    rdmAnswer: ['non va bene', 'chi sei?', 'cosa vuoi?', 'vattaddurme!'],
+    active: false,
   },
 
   methods: {
@@ -105,16 +107,17 @@ const app = new Vue({
   addMsg(){
     let index = this.activeIndex
     this.contacts[index].messages.push({
-      date: "10/10/10", 
+      date: dayjs().format('DD/MM/YYYY HH:mm:ss'), 
       status: 'sent',
       text: this.msgSent
     }),
 
     setTimeout(() => {
+      let risp = this.rdmAnswer[Math.floor(Math.random() * this.rdmAnswer.length- 1) + 1]
       this.contacts[index].messages.push({
-        date: "10/10/10", 
+        date: dayjs().format('DD/MM/YYYY HH:mm:ss'), 
         status: 'received',
-        text: "OK!"
+        text: risp
       })
    }, 1000);
 
@@ -123,11 +126,27 @@ const app = new Vue({
     
   },
 
-  filteredList(){
+  lastAccess(index){
+    let contactMsg = this.contacts[index].messages;
+    return contactMsg[contactMsg.length -1].date;
+  },
 
+  lastMsg(index){
+    let contactMsg = this.contacts[index].messages;
+    if(contactMsg[contactMsg.length - 1].text.length > 20){
+      return contactMsg[contactMsg.length - 1].text.slice(0, 30) + "..."
+    }
+    return contactMsg[contactMsg.length - 1].text;
+  },
+
+   toggle(){
+    
+      this.active = !this.active
     
     
-  }
+  } 
+
+ 
   
 
   

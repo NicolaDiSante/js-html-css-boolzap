@@ -179,11 +179,27 @@ i{
 }
 
 
-.container .left div.left-chat-list ul li.images span{
+.container .left div.left-chat-list ul li span.chat-name{
   position: absolute;
   font-size: 14px;
   margin-top: 3px;
   margin-left: 10px;
+}
+
+.lastMsg{
+  position: absolute;
+  left: 65px;
+  bottom: 5px;
+  font-size: 12px;
+  color: gray;
+}
+
+.lastAccess{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 8px;
+  color: gray;
 }
 
 
@@ -192,6 +208,10 @@ i{
   height: 45px;
   border-radius: 50%;
   vertical-align: middle;
+}
+
+.chat-name{
+
 }
 
 /* END LEFT CONTAINER */
@@ -297,12 +317,33 @@ i{
   border-radius: 10px;
 }
 
+.msg .drop-down{
+  background-color: white;
+  position: absolute;
+  top: 40px;
+  right: 15px;
+  box-shadow: 1px 1px  10px rgba(0, 0, 0, 0.445);
+  border-radius: 5px;
+  z-index: 999;
+}
+
+.msg .drop-down p{
+  text-align: center;
+  padding: 15px;
+  color: gray;
+ 
+}
+
 .msg-container .sent{
   background-color: rgb(167, 255, 167);
 }
 
 .msg-container .received{
   background-color: white;
+}
+
+.msg p{
+  word-wrap: break-word;
 }
 
 
@@ -312,6 +353,7 @@ div.sent span, div.received span{
   position: absolute;
   right: 5px;
   bottom: 2px;
+ 
 }
 
 div.msg i{

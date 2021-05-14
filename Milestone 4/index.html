@@ -59,7 +59,10 @@
               v-if="contact.visible && contact.name.includes(ricerca)"       
             >
             <img :src=" 'img/avatar' + contact.avatar + '.jpg'  " alt="">
-            {{contact.name}}
+            <span class="chat-name">{{ contact.name }}</span>
+            <span class="lastMsg">  {{ lastMsg(index) }} </span>
+            <span class="lastAccess"> {{ lastAccess(index) }} </span>
+            
             </li>
             <!-- <li class="images">
               
@@ -91,7 +94,7 @@
             <img :src=" `img/avatar${contacts[activeIndex].avatar}.jpg` " alt="">
             <div class="info">
               <span> {{ contacts[activeIndex].name }} </span>
-              <span class="access">Ultimo accesso oggi alle</span>
+              <span class="access">Ultimo accesso: {{ lastAccess(activeIndex) }} </span>
             </div>
           </div>
           <div class="right-header-right">
@@ -106,12 +109,18 @@
         <div  
         v-for="(message, index) in contacts[activeIndex].messages" class="msg-container"
         :class="message.status === 'received' ? 'left-left' : null"
+        
         >
-          <div class="msg" :class="message.status">
+          <div  @click="toggle"  class="msg" :class="message.status">
             
             <p> {{message.text}} </p>               
             <span> {{message.date}} </span>
             <i class="fas fa-chevron-down"></i>
+
+            <div :class=" active ? 'drop-down' : null ">
+              <p>  </p>
+              <p>  </p>
+            </div>
             
           </div>
         </div>
@@ -124,7 +133,7 @@
           <input 
             type="text" 
             placeholder="Scrivi un messaggio"
-            v-model="msgSent"
+            v-model.trim="msgSent"
             @keyup.enter="addMsg"
             >
           <i class="fas fa-microphone"></i>
@@ -136,7 +145,7 @@
      
 
   
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>">
   <script src="script.js"></script>
 </body>
 </html>
